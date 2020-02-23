@@ -33,6 +33,7 @@
         <h2>{{ post.title }}</h2>
         <p>{{post.author}} | {{post.date}}</p>
         <p>{{post.text}}</p>
+        <a href="#form-comment" class="btn btn-primary" role="button">Comment</a>
         {% if request.user == post.author %}
         <p><a href="{% url 'update_post' post.pk %}">Edit post</a> | <a href="{% url 'delete_post' post.pk %}">Delete
         </a></p>

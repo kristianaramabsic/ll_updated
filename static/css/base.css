@@ -5,7 +5,7 @@ html {
 
 body {
     font-size: 1.4rem;
-    color: rgba(65, 65,65,0.9) !important;
+    color: rgba(65, 65,65,0.9);
     background-color: #fcfcfc;
     position: relative;
     min-height: 100vh;
@@ -267,7 +267,10 @@ div.comments_length {
     border-bottom: 1px solid rgba(112, 112, 112, 0.8);
     margin: 15px 0px;
 }
-        
+
+.btn.btn-primary {
+    color: #ffffff;
+} 
         
         
         
