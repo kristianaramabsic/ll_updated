@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load threadedcomments_tags %}
+
+{% block instruction %}
+<div class="intruction_container">
+<p class='homepage_instruction'>Are you having issues with a certain product? Is your experiment not working as it should?</p>
+</div>
+{% endblock instruction %}
+{% block listview %}
+    <div class='add_post'>
+        <a href="{% url 'post_new' %}" class="colored_link">+ Ask the network a question</a>
+    </div>
+    {% for post in all_posts_list %}
+    {% get_comment_count for post as comment_count %}
+    <div class="user_post">
+        <p class="author_date">{{post.author}} &#8226; {{post.date}}</p>
+        <a href="{% url 'post_detail' post.pk %}">
+        <h2>{{post.title}}</h2>
+        <p class="post_text">{{post.text|truncatechars:200 }}</p>
+        </a>
+        <a href="{% url 'post_detail' post.pk %}">{{ comment_count }} Comments</a>
+    </div>
+    {% endfor %}
+
+{% endblock listview %}

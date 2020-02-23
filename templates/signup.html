@@ -1,0 +1,16 @@
+{% extends 'signup_template.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block underheader %}
+<h2 class="signup_slogan">Receive quotes effortlessly</h2>
+<div class="signup_form">
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <p>By clicking Agree and Join, you agree to Labzlink
+        User Agreement, Privacy Policy, and Cookie Policy.</p>
+    <button class="btn btn-primary btn-block" type="submit">Agree and Join</button>
+</form>
+</div>
+{% endblock underheader %}

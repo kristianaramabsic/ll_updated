@@ -1,0 +1,42 @@
+{% load crispy_forms_tags %}
+
+
+<div id="form-comment">
+    {% if user.is_authenticated %}
+    <form action="/comments/post/" method="post">{% csrf_token %}
+        {% for field in form %}
+            {% ifequal field.name "name" %}
+                    <input id="id_name" type="hidden" name="name" value="{{ user.username }}" />
+                {% else %}
+                {% ifequal field.name "email" %}
+                    <input type="hidden" name="email" value="{{ user.email }}" id="id_email" />
+                {% else %}
+                {% ifequal field.name "url" %}
+                <input type="hidden" name="url" value="" id="id_url" />
+                {% else %}
+                {% ifequal field.name "title" %}
+                <input type="hidden" name="title" value="" id="id_title" />
+                {% else %}
+                {% ifequal field.name "honeypot" %}
+                <input type="hidden" name="honeypot" value="" id="id_honeypot" />
+                {% else %}
+                {{ field }}
+                {% endifequal %}
+                {% endifequal %}
+                {% endifequal %}
+                {% endifequal %}
+            {% endifequal %}
+            {% if field.errors %}{{ field.errors }}{% endif %}
+        {% endfor %}
+        <p>
+            <a href="#c0" id="cancel_reply" class="btn btn-outline-dark" role="button" aria-pressed="true">Cancel</a>
+            <input type="submit" value="Reply" class="btn btn-primary"/>
+        </p>
+    </form>
+    {% else %}
+    <br />
+    <br />
+    <p>Do you want to contribute to this discussion?</p>
+    <a href="{% url 'login' %}" class="btn btn-outline-primary">Log In</a> or <a href="{% url 'signup' %}" class="btn btn-outline-primary">Sign Up</a>
+    {% endif %}
+</div>

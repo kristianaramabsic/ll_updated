@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block underheader %}
+<h1>Delete post</h1>
+<form action='' method="POST">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ post.title }}"?</p>
+    <input type='submit' value='Yes' />
+</form>
+<p><a href="{% url 'homepage' %}">Go back</a></p>
+{% endblock underheader %}

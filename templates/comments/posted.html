@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% load i18n %}
+
+{% block extrahead %}
+{{ block.super }}
+    <meta http-equiv="Refresh" content="2; url={{ comment.content_object.get_absolute_url }}#c{{ comment.id }}" />
+{% endblock %}
+
+{% block underheader %}
+    <h2>{% trans "Thank you for your comment." %}</h2>
+    <p>
+      {% blocktrans %}
+      We hope it will be useful to the author of the post!<br/>
+      Sending you back to the post...
+      {% endblocktrans %}
+    </p>
+
+    <p><a href="{{ comment.content_object.get_absolute_url }}#c{{ comment.id }}">{% trans "Back to the article" %}</a></p>
+{% endblock underheader %}
