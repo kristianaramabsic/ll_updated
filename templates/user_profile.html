@@ -3,13 +3,15 @@
 <div class="user_profile">
     <div class="user_info">
         {{user.photo}}
-        <p>{{ user.username }}</p>
-        {{user.university}} • {{user.country.name}}
+        <p>{{ customuser.username }}</p>
+        {{customuser.university}} • {{customuser.country.name}}
     </div>
     <div class="research_description">
-        {{ user.research_description }}
+        {{ customuser.research_description }}
     </div>
-    <a href="{% url 'user_profile:edit_profile' user.username %}">Edit your profile</a>
+    {% if request.user.username == customuser.username %}
+    <a href="{% url 'user_profile:edit_profile' customuser.username %}">Edit your profile</a>
+    {% endif %}
 </div>
 {% endblock underheader %}
 

@@ -20,4 +20,4 @@ class UpdateProfileView (LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     
     def test_func(self):
         obj = self.get_object()
-        return obj.email == self.request.user.email
+        return obj.username == self.request.user.username
