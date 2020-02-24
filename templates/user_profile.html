@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block underheader %}
+<div class="user_profile">
+    <div class="user_info">
+        {{user.photo}}
+        <p>{{ user.username }}</p>
+        {{user.university}} • {{user.country.name}}
+    </div>
+    <div class="research_description">
+        {{ user.research_description }}
+    </div>
+    <a href="{% url 'user_profile:edit_profile' user.username %}">Edit your profile</a>
+</div>
+{% endblock underheader %}
+

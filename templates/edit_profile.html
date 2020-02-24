@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block underheader %}
+<h2>Edit {{ user.username }}</h2>
+<form action='' method="POST">{% csrf_token %}
+    {{ form|crispy }}
+    <input type='submit' value='Save' /> 
+</form>
+{% endblock underheader %}

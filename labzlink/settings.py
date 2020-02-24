@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'threadedcomments',
     'django_comments',
     'django.contrib.sites',
+    'django_countries',
 
     #myapps
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+    'user_profile.apps.UserProfileConfig',
 ]
 
 MIDDLEWARE = [

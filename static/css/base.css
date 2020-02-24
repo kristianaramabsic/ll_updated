@@ -244,7 +244,7 @@ div.comment_info {
 }
 
 div.comment_text {
-    word-break: break-all;
+    word-break: break-word;
     padding-bottom: 5px;
     font-weight: 510;
 }
